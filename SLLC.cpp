@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <conio.h>
 using namespace std;
 
 struct TNode{
@@ -138,85 +139,87 @@ void tampil(){
 }
 
 void clear(){
-TNode *bantu,*hapus;
-bantu = head;
-while(bantu!=NULL){
-hapus = bantu;
-bantu = bantu->next;
-delete hapus;
+    TNode *bantu,*hapus;
+    bantu = head;
+    while(bantu!=NULL){
+        hapus = bantu;
+        bantu = bantu->next;
+        delete hapus;
+    }
+    head = NULL;
+    cout<<"CLEAR";
 }
-head = NULL;
-cout<<"CLEAR";
-}
-
+	
 int main () {
-int pilih,databaru,posisi;
-do {
-system("cls");
-cout<<endl<<endl;
-cout<<"Pilihan : "<<endl;
-cout<<"1. Insert Data"<<endl;
-cout<<"2. Tambah Data Node Depan"<<endl;
-cout<<"3. Tambah Data Node Belakang"<<endl;
-cout<<"4. Hapus Data Node Depan"<<endl;
-cout<<"5. Hapus Data Node Belakang"<<endl;
-cout<<"6. Sisipkan Data Node"<<endl;
-cout<<"7. Lihat"<<endl;
-cout<<"8. clear"<<endl;
-cout<<"9. Keluar"<<endl;
-cout<<"Masukan Pilihan : "; cin>>pilih;
-switch(pilih){
-case 1:{
-cout<<"Masukan Data : "; cin>>databaru;
-insertDepan(databaru);
-cout<<endl;
-break;
-}	
-case 2:{
-cout<<"Masukan Data : "; cin>>databaru;
-insertDepan(databaru);
-cout<<endl;
-break;
-}	
-case 3:{
-cout<<"Masukan Data : "; cin>>databaru;
-insertBelakang(databaru);
-cout<<endl;
-break;
-}
-case 4:{
-hapusDepan();
-cout<<endl;
-break;
-}	
-case 5:{
-hapusBelakang();
-break;
-}	
-case 6:{
-cout<<"Masukan Data : "; cin>>databaru;
-cout<<"Masukan Posisi Data yang ingin ditambahkan: "; cin>>posisi;
-sisipan(databaru, posisi);
-cout<<endl;
-break;
-}
-case 7:{
-tampil();
-break;
-}
-case 8:{
-clear();
-break;
-}
-case 9:{
-exit(1);
-break;
-}
-default:{
-cout<<"Wrong choice"<<endl;
-}
-}
-}
-while(pilih!=9);
-return 0;
+     int pilih,databaru,posisi;
+     
+    do {
+        system("cls");
+        cout<<endl<<endl;
+        cout<<"Pilihan : "<<endl;
+		cout<<"1. Buat Node"<<endl;
+		cout<<"2. Tambah Node Depan"<<endl;
+		cout<<"3. Tambah Node Belakang"<<endl;
+		cout<<"4. Hapus Node Depan"<<endl;
+		cout<<"5. Hapus Node Belakang"<<endl;
+		cout<<"6. Sisipkan"<<endl;
+		cout<<"7. Lihat"<<endl;
+		cout<<"8. Clear"<<endl;
+		cout<<"9. Keluar"<<endl;
+		cout<<"Masukan Pilihan : "; cin>>pilih;
+		switch(pilih){
+			case 1:{
+				cout<<"Masukan Data : "; cin>>databaru;
+				insertDepan(databaru);
+				cout<<endl;
+				break;
+				}
+			case 2:{
+				cout<<"Masukan Data : "; cin>>databaru;
+				insertDepan(databaru);
+				cout<<endl;
+				break;
+				}				
+			case 3:{
+				cout<<"Masukan Data : "; cin>>databaru;
+            			insertBelakang(databaru);
+            			cout<<endl;
+				break;
+			}
+			case 4:{
+				hapusDepan();
+		            	cout<<endl;
+				break;
+			}	
+          		case 5:{
+         			hapusBelakang();
+				break;
+			}			
+			case 6:{
+				cout<<"Masukan Data : "; cin>>databaru;
+            			cout<<"Masukan Posisi yang ingin ditambahkan: "; cin>>posisi;
+            			sisipan(databaru, posisi);
+            			cout<<endl;
+				break;
+			}
+            		case 7:{
+            			tampil();
+				break;
+			}			
+			case 8:{
+				clear();
+				break;
+			}
+		        case 9:{
+            			exit(1);
+				break;
+			}
+			default:{
+            			cout<<"Wrong choice"<<endl;
+			}
+		}
+		getch();
+	}	
+	while(pilih!=9);
+    return 0;
 }
