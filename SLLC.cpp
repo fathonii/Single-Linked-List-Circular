@@ -5,7 +5,7 @@ using namespace std;
 struct TNode{
     int data;
     TNode *next;
-}*last;
+};
 
 class Node{
 	public:
@@ -102,17 +102,39 @@ void hapusBelakang(){
 else cout<<"Masih kosong\n";
 }
 
-void tampil(){
-TNode *bantu;
-bantu=head;
-if(isEmpty()==0){
-while(bantu!=NULL){
-cout<<bantu->data<<" ";
-bantu=bantu->next;
+void sisipan(int databaru,int posisi){
+	TNode *baru, *bantu;
+	if(head!= NULL){
+	    	baru =new TNode;
+		bantu=head;
+     
+    		for(int i=1;i<posisi-1;i++) {
+      			if(bantu->next != NULL)
+        		bantu=bantu->next;
+    		}
+  
+  		baru->data=databaru;
+  		baru->next=bantu->next;
+  		bantu->next=baru;
+  	}
+  	else{
+    	cout<<"Belum ada data !! silahkan isi data dulu....";
+    	getch();
+  	}
+ 	cout<<"Data masuk"<<endl;
 }
-} 
-else 
-cout<<"Masih kosong\n";
+
+void tampil(){
+   TNode *bantu;
+   bantu=head;
+   if(isEmpty()==0){
+      while(bantu!=NULL){
+         cout<<bantu->data<<" ";
+   	 bantu=bantu->next;
+	}
+   } 
+   else 
+	cout<<"Masih kosong\n";
 }
 
 void clear(){
