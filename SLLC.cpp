@@ -1,3 +1,31 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+struct TNode{
+    int data;
+    TNode *next;
+}*last;
+
+class Node{
+	public:
+		Node* next;
+		Node* posisi;
+    	int data;
+};
+
+TNode *head, *tail;
+void init(){
+    head=NULL;
+    tail=NULL;
+}
+
+int isEmpty(){
+	if(tail==NULL) 
+		return 1;
+	else 
+		return 0;
+}
 void insertDepan(int databaru){
  TNode *baru;
  baru=new TNode;
